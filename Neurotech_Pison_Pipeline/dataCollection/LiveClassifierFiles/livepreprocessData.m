@@ -1,10 +1,10 @@
-function [epochedData] = livepreprocessData(lsl_data)
+function [filtered_lsl_data] = livepreprocessData(lsl_data)
 %preprocessData Filter and epoch the data
 %   
 
 Fs = 1000;
 numCh = 4;
-epochedData =[];
+filtered_lsl_data =[];
 
     
 

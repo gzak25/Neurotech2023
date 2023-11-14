@@ -11,7 +11,7 @@ function[feature_table] = pullFeatures(dataChTimeTr,includedFeatures)
     % includedFeatures = {'var','mean', 'mode', 'median', 'range', 'std',
     % 'mad'};  REMOVE THIS LATER THIS IS JUST A REFERENCE
 
-    feature_table = extractFeatures(dataChTimeTr,includedFeatures,Fs);
+    feature_table = extractFeatures(dataChTimeTr,includedFeatures,Fs)
 
     % Skipping saving the data for now, might be worth adding later though?
 
@@ -86,7 +86,7 @@ function [feature_table] = extractFeatures(dataChTimeTr,includedFeatures, Fs)
         % Put feature values (fvalues) into a table with appropriate names
         % fvalues should have rows = number of trials
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        feature_table = [feature_table; fvalues];
+        feature_table = [feature_table fvalues]
         % If there is only one feature, just name it the feature name
         % if size(fvalues,2) == 1
         %     feature_table = [feature_table table(fvalues,...

@@ -7,19 +7,20 @@
 % REMOVE THE INCLUDED FEATURES EVENTUALLY SINCE THAT WILL LIKELY BE HARD
 % CODED IN THE FINAL FUNCTIONS
 
-function [ypred] = liveClassification(data)
+function [ypred] = runMatlabModel(data)
     % Prepare the data for the classifier
-    includedFeatures = {'var','mean', 'mode', 'median', 'range', 'std', 'mad'};
-    selected_features = [21 22 23 24 25 26 27 28];
+    disp("Hello World")
+    includedFeatures = {'std', 'mad'};
+    selected_features = [1 2 3 4 5 6 7 8];
     [dataChTimeTr] = livepreprocessData(data);   %Consider removing labels input
-    feature_table = pullFeatures(dataChTimeTr,includedFeatures)
+    feature_table = pullFeatures(dataChTimeTr,includedFeatures);
      selected_feature_table = feature_table(:,selected_features);
-    plot(dataChTimeTr(1,:,:))
+    % plot(dataChTimeTr(1,:,:))
     % Load our pre-saved RPS classifier
     load("mymodel.mat", "currentClassifier")
     % Run the classifier on our live features
 
-    ypred = currentClassifier.predictFcn(selected_feature_table);
+    ypred = int32(currentClassifier.predict(selected_feature_table);
     % Output our classifier's prediction
     
 end
