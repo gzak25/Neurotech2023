@@ -21,7 +21,7 @@ function ypred = runMatlabModel(data)
     
 
     ypred_ = (currentClassifier.predict(selected_feature_table));
-    disp(ypred_)
+    % disp(ypred_)
     ypred = ypred_(2);
     % Output our classifier's prediction
     
