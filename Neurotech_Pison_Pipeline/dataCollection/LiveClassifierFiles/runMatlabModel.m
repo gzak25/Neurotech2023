@@ -9,9 +9,10 @@
 
 function ypred = runMatlabModel(data)
     % Prepare the data for the classifier
-    includedFeatures = {'std', 'mad'};
-    selected_features = [1 2 3 4 5 6 7 8];
-    [dataChTimeTr] = livepreprocessData(data);   %Consider removing labels input
+    includedFeatures = {'std', 'mad', 'meanfreq', 'medfreq'};
+    selected_features = [5 6 7 8 13 14 15 16];
+    [dataChTimeTr] = livepreprocessData(data); 
+    % labels input 
     feature_table = pullFeatures(dataChTimeTr,includedFeatures);
      selected_feature_table = feature_table(:,selected_features);
     % plot(dataChTimeTr(1,:,:))
@@ -24,5 +25,7 @@ function ypred = runMatlabModel(data)
     % disp(ypred_)
     ypred = ypred_(2);
     % Output our classifier's prediction
-    
+
+    plot(selected_feature_table(:,3), selected_feature_table(:,7), 'bo')
+    save('selected_features_table')
 end

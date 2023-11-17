@@ -63,6 +63,14 @@ function [feature_table] = extractFeatures(dataChTimeTr,includedFeatures, Fs)
                 fvalues = squeeze(std(dataChTimeTr,0,2))';
             case 'mad'
                 fvalues = squeeze(mad(dataChTimeTr,0,2))';
+            case 'meanfreq'
+                for i = 1:4
+                    fvalues(:,i) = meanfreq(squeeze(dataChTimeTr(i,:,:)))';
+                end
+            case 'medfreq'
+                for j = 1:4
+                    fvalues(:,i) = medfreq(squeeze(dataChTimeTr(i,:,:)))';
+                end
             % case 'wl'
             %     fvalues = squeeze(jWaveformLength(dataChTimeTr, 2))
             % case 'ssc'
