@@ -19,13 +19,15 @@ function ypred = runMatlabModel(data)
     % Load our pre-saved RPS classifier
     load("mymodel.mat", "currentClassifier")
     % Run the classifier on our live features
-    
+    % disp(selected_feature_table)
 
-    ypred_ = (currentClassifier.predict(selected_feature_table));
+    ypred_ = (currentClassifier.predict(selected_feature_table(1,:)));
     % disp(ypred_)
-    ypred = ypred_(2);
+    ypred = ypred_;
     % Output our classifier's prediction
-
-    plot(selected_feature_table(:,3), selected_feature_table(:,7), 'bo')
-    save('selected_features_table')
+    
+    % disp(selected_feature_table)
+    % save('selected_features_table')
 end
+
+ 

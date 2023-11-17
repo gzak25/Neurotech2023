@@ -94,7 +94,7 @@ function [feature_table] = extractFeatures(dataChTimeTr,includedFeatures, Fs)
         % Put feature values (fvalues) into a table with appropriate names
         % fvalues should have rows = number of trials
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        feature_table = [feature_table; fvalues];
+        feature_table = [fvalues];
         % If there is only one feature, just name it the feature name
         % if size(fvalues,2) == 1
         %     feature_table = [feature_table table(fvalues,...
@@ -112,10 +112,10 @@ function [feature_table] = extractFeatures(dataChTimeTr,includedFeatures, Fs)
         
         % else
         % % Otherwise, loop through each one and give a number name 
-        %     for  v = 1:size(fvalues,2)
-        %         feature_table = [feature_table table(fvalues(:,v),...
-        %             'VariableNames',string(strcat(includedFeatures{f}, '_' ,'val',num2str(v))))]; %#ok<AGROW>
-        %     end
+            % for  v = 1:size(fvalues,2)
+            %     feature_table = [feature_table table(fvalues(:,v),...
+            %         'VariableNames',string(strcat(includedFeatures{f}, '_' ,'val',num2str(v))))]; %#ok<AGROW>
+            % end
         % end
     end
 
